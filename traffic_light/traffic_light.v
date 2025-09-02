@@ -1,8 +1,9 @@
 module traffic_light (
   input clk,
   input reset,
-  output reg [1:0] light // 00=Red, 01=Yellow, 10=Green
+  output reg [3:0] light
 );
+
   reg [1:0] state;
 
   always @(posedge clk or posedge reset) begin
@@ -17,7 +18,8 @@ module traffic_light (
       2'b00: light = 2'b00; // Red
       2'b01: light = 2'b01; // Yellow
       2'b10: light = 2'b10; // Green
-      default: light = 2'b00;
+      default: light = 2'b11; // Off or undefined
     endcase
   end
+
 endmodule
