@@ -1,6 +1,6 @@
 module traffic_light_tb;
   reg clk, reset;
-  wire [1:0] light;
+  wire [3:0] light;
 
   traffic_light uut (.clk(clk), .reset(reset), .light(light));
 
