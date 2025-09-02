@@ -23,7 +23,7 @@ module airport_security_tb;
   );
 initial begin
     $dumpfile("airport_security.vcd");
-    $dumpvars(0, tb_airport_security);
+  $dumpvars(0, airport_security_tb);
 
     clk = 0; reset = 1;
     passenger_type = 2'b10; // VIP
