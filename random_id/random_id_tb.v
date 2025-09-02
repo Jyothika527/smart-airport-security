@@ -5,7 +5,7 @@ module id_generator_tb;
   id_generator uut (.clk(clk), .reset(reset), .id(id));
 
   initial begin
-    $dumpfile("id.vcd"); $dumpvars(0, tb_id_generator);
+    $dumpfile("id.vcd"); $dumpvars(0, id_generator_tb);
     clk = 0; reset = 1; #5;
     reset = 0;
 
