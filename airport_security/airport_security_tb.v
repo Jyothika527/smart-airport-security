@@ -1,8 +1,9 @@
-module airport_security_tb;
+module tb_airport_security;
   reg clk, reset;
   reg [1:0] passenger_type;
   reg [3:0] sensor_pulse;
   reg [7:0] baggage_data;
+
   wire [1:0] priority;
   wire [3:0] count;
   wire parity;
@@ -21,21 +22,22 @@ module airport_security_tb;
     .light(light),
     .security_token(security_token)
   );
-initial begin
+
+  initial begin
     $dumpfile("airport_security.vcd");
-  $dumpvars(0, airport_security_tb);
+    $dumpvars(0, tb_airport_security);
 
     clk = 0; reset = 1;
     passenger_type = 2'b10; // VIP
-    sensor_pulse = 4'b0011; // Simulate 2 people
+    sensor_pulse = 4'b0001;
     baggage_data = 8'b10101010;
+
     #5 reset = 0;
- repeat (20) begin
+
+    repeat (20) begin
       #5 clk = ~clk;
     end
-$finish;
+
+    $finish;
   end
 endmodule
-
-
-
