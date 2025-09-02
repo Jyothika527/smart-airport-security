@@ -1,25 +1,18 @@
-module traffic_light (
-  input clk,
-  input reset,
-  output reg [1:0] light
-);
+module traffic_light_tb;
+  reg clk, reset;
+  wire [1:0] light;
 
-  reg [1:0] state;
+  traffic_light uut (.clk(clk), .reset(reset), .light(light));
 
-  always @(posedge clk or posedge reset) begin
-    if (reset)
-      state <= 2'b00;
-    else
-      state <= state + 1;
+  initial begin
+    $dumpfile("traffic.vcd"); $dumpvars(0, traffic_light_tb);
+    clk = 0; reset = 1; #5;
+    reset = 0;
+
+    repeat (10) begin
+      #5 clk = ~clk;
+    end
+
+    $finish;
   end
-
-  always @(*) begin
-    case (state)
-      2'b00: light = 2'b00; // Red
-      2'b01: light = 2'b01; // Yellow
-      2'b10: light = 2'b10; // Green
-      default: light = 2'b11; // Off or undefined
-    endcase
-  end
-
 endmodule
