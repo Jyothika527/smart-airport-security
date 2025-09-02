@@ -1,4 +1,4 @@
-module tb_parity_checker;
+module parity_checker_tb;
   reg [7:0] data;
   wire parity;
 
