@@ -6,7 +6,7 @@ module priority_checker_tb;
   priority_checker uut (.sel(sel), .priority_in(priority_in), .priority_out(priority_out));
 
   initial begin
-    $dumpfile("priority.vcd"); $dumpvars(0, tb_priority_checker);
+    $dumpfile("priority.vcd"); $dumpvars(0, priority_checker_tb);
     priority_in = 3'b101; // VIP=1, Business=0, Regular=1
 
     sel = 2'b00; #10; // Regular
