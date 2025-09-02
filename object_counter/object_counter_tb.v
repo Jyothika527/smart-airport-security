@@ -5,7 +5,7 @@ module object_counter_tb;
   object_counter uut (.clk(clk), .reset(reset), .count(count));
 
   initial begin
-    $dumpfile("counter.vcd"); $dumpvars(0, tb_object_counter);
+    $dumpfile("counter.vcd"); $dumpvars(0, object_counter_tb);
     clk = 0; reset = 1; #5;
     reset = 0;
 
