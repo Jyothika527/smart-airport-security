@@ -1,4 +1,4 @@
-module tb_airport_security;
+module airport_security_tb;
   reg clk, reset;
   reg [1:0] passenger_type;
   reg [3:0] sensor_pulse;
@@ -25,7 +25,7 @@ module tb_airport_security;
 
   initial begin
     $dumpfile("airport_security.vcd");
-    $dumpvars(0, tb_airport_security);
+    $dumpvars(0, airport_security_tb);
 
     clk = 0; reset = 1;
     passenger_type = 2'b10; // VIP
